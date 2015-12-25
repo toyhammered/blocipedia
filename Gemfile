@@ -33,6 +33,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'figaro'
 gem 'font-awesome-rails'
+gem 'pundit'
 
 
 gem 'uglifier', '>= 1.3.0'
