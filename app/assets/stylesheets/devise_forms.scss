@@ -1,0 +1,38 @@
+#devise-form {
+
+  .panel {
+    margin-bottom: 20px;
+    .panel-body {
+      h4 {
+        margin-bottom: 30px;
+        margin-top: 20px;
+      }
+      .margin-bottom-fix {
+        margin-bottom: 20px;
+      }
+
+      input {
+        border: 0;
+        border: 1px solid $teal;
+
+      }
+    } // end of panel-body
+  }
+  .panel-footer {
+    h4 {
+      margin-bottom: 30px;
+      margin-top: 20px;
+    }
+    a {
+      margin-bottom: 20px;
+    }
+  }
+
+} // end of devise-form
+.checkbox label {
+  padding-left: 15px;
+
+  #user_remember_me {
+    margin-left:-10px;
+  }
+}
