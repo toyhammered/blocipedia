@@ -42,10 +42,19 @@
 
     <div class="panel-footer col-sm-12">
       <div class="row text-center">
+        <h4 class="text-center">Become a Premium Member</h4>
+        <%= link_to "Upgrade Account", new_charge_path, class: "btn btn-success" %>
+      </div>
+    </div>
+
+    <div class="panel-footer col-sm-12">
+      <div class="row text-center">
         <h4 class="text-center">Unhappy?</h4>
         <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>
       </div>
     </div>
+
+
   </div>
 
 </div>

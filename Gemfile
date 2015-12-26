@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.2.1'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 
@@ -34,6 +36,7 @@ gem 'devise'
 gem 'figaro'
 gem 'font-awesome-rails'
 gem 'pundit'
+gem 'stripe'
 
 
 gem 'uglifier', '>= 1.3.0'
