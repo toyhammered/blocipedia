@@ -1,5 +1,15 @@
 class WikiPolicy < ApplicationPolicy
 
+  class Scope < Scope
+    def my_private_wiki
+      scope.where(user_id: @user.id, private: true)
+    end
+
+    def my_public_wiki
+      scope.where(user_id: @user.id, private: false)
+    end
+  end
+
   attr_reader :user, :wiki
 
   def initialize(user, wiki)
@@ -8,7 +18,11 @@ class WikiPolicy < ApplicationPolicy
   end
 
   def create?
-    user.admin? || user_match
+    if wiki.private?
+      user.admin? || user.premium?
+    else
+      true
+    end
   end
 
   def edit?

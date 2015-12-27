@@ -1,43 +1,9 @@
-<div class='row'>
-  <div class="col-lg-3 col-sm-6 col-xs-12">
-    <%= link_to wiki_path(wikis[0].id) do %>
-      <div class="dummy"></div>
-        <div class="panel panel-default square">
-        <h3 class="text-center"><%= wikis[0].title %></h3>
-      </div>
-    <% end %>
+<div class="col-lg-3 col-sm-6 col-xs-12">
+  <%= link_to wiki_path(wiki.id) do %>
+  <div class="dummy"></div>
+  <div class="panel panel-default square">
+    <h3 class="text-center"><%= wiki.title %></h3>
+    <p class="text-center">Private?: <%= wiki.private %></p>
   </div>
-
-  <% if wikis[1].present? %>
-    <div class="col-lg-3 col-sm-6 col-xs-12">
-      <%= link_to wiki_path(wikis[1].id) do %>
-        <div class="dummy"></div>
-          <div class="panel panel-default square">
-          <h3 class="text-center"><%= wikis[1].title %></h3>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
-
-  <% if wikis[2].present? %>
-    <div class="col-lg-3 col-sm-6 col-xs-12">
-      <%= link_to wiki_path(wikis[2].id) do %>
-        <div class="dummy"></div>
-          <div class="panel panel-default square">
-          <h3 class="text-center"><%= wikis[2].title %></h3>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
-
-  <% if wikis[3].present? %>
-    <div class="col-lg-3 col-sm-6 col-xs-12">
-      <%= link_to wiki_path(wikis[3].id) do %>
-        <div class="dummy"></div>
-          <div class="panel panel-default square">
-          <h3 class="text-center"><%= wikis[3].title %></h3>
-        </div>
-      <% end %>
-    </div>
   <% end %>
 </div>

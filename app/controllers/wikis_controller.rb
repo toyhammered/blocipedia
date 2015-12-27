@@ -3,7 +3,7 @@ class WikisController < ApplicationController
   after_action :verify_authorized, except: [:index, :show, :new]
 
   def index
-    @wikis = Wiki.all
+    @wikis = Wiki.where(private: false)
   end
 
   def show
@@ -65,7 +65,7 @@ class WikisController < ApplicationController
   private
 
   def wiki_params
-    params.require(:wiki).permit(:title, :body)
+    params.require(:wiki).permit(:title, :body, :private)
   end
 
 end

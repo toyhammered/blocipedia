@@ -1,6 +1,6 @@
 
 <h2 class='text-center'>All Public Wikis</h2>
 <%= link_to "New Wiki", new_wiki_path, class: "btn btn-default" %>
-<% @wikis.in_groups_of(4) do |group| %>
-    <%= render partial: 'wikis/wiki', locals: {wikis: group} %>
-<% end %>
+<div class="row">
+    <%= render partial: 'wikis/wiki', collection: @wikis %>
+</div>

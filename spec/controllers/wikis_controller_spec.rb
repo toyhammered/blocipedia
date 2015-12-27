@@ -4,6 +4,7 @@ RSpec.describe WikisController, type: :controller do
 
   let(:my_user) { create(:user) }
   let(:other_user) { create(:user) }
+  let(:premium_user) { create(:user, role: :premium)}
   let(:admin_user) { create(:user, role: :admin)}
   let(:my_wiki) { create(:wiki, user: my_user) }
 
@@ -60,24 +61,35 @@ RSpec.describe WikisController, type: :controller do
     end
 
     describe "POST create" do
-      it 'increases the number of Wikis by 1' do
-        expect { post :create, user_id: my_user.id, wiki: {title: Faker::Book.title, body: Faker::Hipster.paragraph} }.to change(Wiki, :count).by(1)
-      end
+      context 'public wikis' do
+        it 'increases the number of Wikis by 1' do
+          expect { post :create, user_id: my_user.id, wiki: {title: Faker::Book.title, body: Faker::Hipster.paragraph} }.to change(Wiki, :count).by(1)
+        end
 
-      it 'assigns the new wiki to @wiki' do
-        post :create, user_id: my_user.id, wiki: {title: Faker::Book.title, body: Faker::Hipster.paragraph}
-        expect(assigns(:wiki)).to eq Wiki.last
-      end
+        it 'assigns the new wiki to @wiki' do
+          post :create, user_id: my_user.id, wiki: {title: Faker::Book.title, body: Faker::Hipster.paragraph}
+          expect(assigns(:wiki)).to eq Wiki.last
+        end
 
-      it 'redirects to the new wiki on success' do
-        post :create, user_id: my_user.id, wiki: {title: Faker::Book.title, body: Faker::Hipster.paragraph}
-        expect(response).to redirect_to Wiki.last
-      end
+        it 'redirects to the new wiki on success' do
+          post :create, user_id: my_user.id, wiki: {title: Faker::Book.title, body: Faker::Hipster.paragraph}
+          expect(response).to redirect_to Wiki.last
+        end
 
-      it 'renders #new when error' do
-        post :create, user_id: my_user.id, wiki: { title: "", body: ""}
-        expect(response).to render_template(:new)
-      end
+        it 'renders #new when error' do
+          post :create, user_id: my_user.id, wiki: { title: "", body: ""}
+          expect(response).to render_template(:new)
+        end
+      end # end of public wikis
+
+      context 'private wikis' do
+        it 'returns http redirect' do
+          post :create, user_id: my_user.id, wiki: {title: Faker::Book.title, body: Faker::Hipster.paragraph, private: true}
+          expect(response).to have_http_status(:redirect)
+          expect(flash[:error]).to match(/not authorized/)
+        end
+
+      end # end of private wikis
     end
 
     describe "GET edit" do
@@ -144,6 +156,10 @@ RSpec.describe WikisController, type: :controller do
 
   end # end of my user
 
+
+
+
+
   context 'other user doing CRUD on a wiki they do not own' do
     before(:each) do
       sign_in my_user
@@ -175,6 +191,38 @@ RSpec.describe WikisController, type: :controller do
     end
 
   end # end of other user
+
+
+
+
+
+  context 'premium user doing CRUD on any wiki' do
+    before(:each) do
+      sign_in premium_user
+    end
+
+    describe "POST create" do
+      context 'private wikis' do
+        it 'increases the number of Wikis by 1' do
+          expect { post :create, user_id: my_user.id, wiki: {title: Faker::Book.title, body: Faker::Hipster.paragraph, private: true} }.to change(Wiki, :count).by(1)
+        end
+
+        it 'assigns the new wiki to @wiki' do
+          post :create, user_id: my_user.id, wiki: {title: Faker::Book.title, body: Faker::Hipster.paragraph, private: true}
+          expect(assigns(:wiki)).to eq Wiki.last
+        end
+
+        it 'redirects to the new wiki on success' do
+          post :create, user_id: my_user.id, wiki: {title: Faker::Book.title, body: Faker::Hipster.paragraph, private: true}
+          expect(response).to redirect_to Wiki.last
+        end
+      end # end of private wikis
+    end
+  end
+
+
+
+
 
   context 'admin user doing CRUD on any wiki' do
     before(:each) do
