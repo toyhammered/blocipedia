@@ -38,6 +38,7 @@ gem 'font-awesome-rails'
 gem 'pundit'
 gem 'stripe'
 gem 'stripe-ruby-mock', '~> 2.2.1', :require => 'stripe_mock'
+gem 'redcarpet'
 
 
 gem 'uglifier', '>= 1.3.0'
