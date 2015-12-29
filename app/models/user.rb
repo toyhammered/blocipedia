@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
+  has_many :wikis, through: :collaborators, dependent: :destroy
+  has_many :collaborators
+
   enum role: [:standard, :premium, :admin]
   after_initialize :set_default_role, :if => :new_record?
-
-  has_many :wikis, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :confirmable, :recoverable, :rememberable,

@@ -1,6 +1,7 @@
 class WikiPolicy < ApplicationPolicy
 
   class Scope < Scope
+
     def my_private_wiki
       scope.where(user_id: @user.id, private: true)
     end
@@ -37,9 +38,8 @@ class WikiPolicy < ApplicationPolicy
     user.admin? || user_match
   end
 
-
   def user_match
-    @user.id == @wiki.user_id
+    @user.id == @wiki.user
   end
 
 
