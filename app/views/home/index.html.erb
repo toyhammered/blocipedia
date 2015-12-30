@@ -1,10 +1,246 @@
-<div class="jumbotron text-center">
-  <div class="container">
-    <h1>Blocipedia</h1>
-    <p>Something with Wikis!</p>
-    <p>
-      <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
-      <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary btn-lg' %>
-    </p>
+<%= stylesheet_link_tag "home_index/animate.css" %>
+<%= stylesheet_link_tag "home_index/owl.carousel.min.css" %>
+<%= stylesheet_link_tag "home_index/owl.theme.default.min.css" %>
+<%= stylesheet_link_tag "home_index/style.css" %>
+<%#= stylesheet_link_tag "home_index/icomoon.css" %>
+<%= stylesheet_link_tag "home_index/magnific-popup.css" %>
+<%#= stylesheet_link_tag "home_index/simple-line-icons.css" %>
+
+
+
+<div id="slider" data-section="home">
+  <div class="owl-carousel owl-carousel-fullwidth">
+
+    <!-- <div class="item" style="background-image:url(images/slide_5.jpg)"> -->
+    <div class="item">
+      <div class="overlay"></div>
+      <div class="container" style="position: relative;">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 text-center">
+            <div class="fh5co-owl-text-wrap">
+              <div class="fh5co-owl-text">
+                <h1 class="fh5co-lead to-animate">Create a Free Account</h1>
+              <h2 class="fh5co-sub-lead to-animate">Be able to create public wikis and invite collaborators to help maintain them</h2>
+              <p class="to-animate-2"><a href="http://freehtml5.co/" target="_blank" class="btn btn-primary btn-lg">Sign up</a></p>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- You may change the background color here. -->
+      <div class="item" style="background: #352f44;">
+        <div class="container" style="position: relative;">
+          <div class="row">
+            <div class="col-md-7 col-sm-7">
+              <div class="fh5co-owl-text-wrap">
+                <div class="fh5co-owl-text">
+                  <h1 class="fh5co-lead to-animate">Private Wikis?</h1>
+                <h2 class="fh5co-sub-lead to-animate">We got you covered! Upgrade your already existing account to a premium member to have unlimited private wikis</h2>
+                <p class="to-animate-2"><a href="#" class="btn btn-primary btn-lg">Learn more</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-md-push-1 col-sm-4 col-sm-push-1 iphone-image">
+              <div class="iphone to-animate-2"><img src="" alt="Free HTML5 Template by FREEHTML5.co"></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="item" style="background-image:url(images/slide_5.jpg)"> -->
+      <div class="item" style="background: #38569f;">
+        <div class="overlay"></div>
+        <div class="container" style="position: relative;">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+              <div class="fh5co-owl-text-wrap">
+                <div class="fh5co-owl-text">
+                  <h1 class="fh5co-lead to-animate">Interested how this was developed?</h1>
+                <h2 class="fh5co-sub-lead to-animate">Feel free to check this project out on <a href="http://freehtml5.co/" target="_blank">github.com</a></h2>
+                <p class="to-animate-2"><a href="http://freehtml5.co/" target="_blank" class="btn btn-primary btn-lg">Sign up</a></p>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
   </div>
 </div>
+
+
+
+<div id="fh5co-about-us" data-section="about">
+  <div class="container">
+    <div class="row row-bottom-padded-lg" id="about-us">
+      <div class="col-md-12 section-heading text-center">
+        <h2 class="to-animate">About Blocipedia</h2>
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 to-animate">
+            <h3>a sexy description will go here</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 to-animate">
+        <img src="" class="img-responsive img-rounded" alt="Free HTML5 Template">
+      </div>
+      <div class="col-md-4 to-animate">
+        <h2>(Maybe talk about the process? Not really sure)</h2>
+        <p>Not sure what to put here </p>
+        <p>Not sure what to put here </p>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+<div id="fh5co-our-services" data-section="services">
+  <div class="container">
+    <div class="row row-bottom-padded-sm">
+      <div class="col-md-12 section-heading text-center">
+        <h2 class="to-animate">Features</h2>
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 to-animate">
+            <h3>Some classy line will go here</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="box to-animate">
+          <div class="icon colored-1"><span><i class="icon-mustache"></i></span></div>
+          <h3>Unlimited Public Wikis</h3>
+          <p>You will never have to pay for your wikis to be public</p>
+        </div>
+        <div class="box to-animate">
+          <div class="icon colored-4"><span><i class="icon-heart"></i></span></div>
+          <h3>Private Wikis</h3>
+          <p>With a small one time fee, be able to make unlimited private wikis</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="box to-animate">
+          <div class="icon colored-2"><span><i class="icon-screen-desktop"></i></span></div>
+          <h3>Fully responsive</h3>
+          <p>This site not only works on your desktop, but even your ipad and mobile!</p>
+        </div>
+        <div class="box to-animate">
+          <div class="icon colored-5"><span><i class="icon-rocket"></i></span></div>
+          <h3>Open Source</h3>
+          <p>Feel free to take and use this code how you want, hopefully it will be able to help you learn something</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="box to-animate">
+          <div class="icon colored-3"><span><i class="icon-eye"></i></span></div>
+          <h3>Admin moderation</h3>
+          <p>There are admins who will be able to help maintain and make sure all posts are appropriate</p>
+        </div>
+        <div class="box to-animate">
+          <div class="icon colored-6"><span><i class="icon-user"></i></span></div>
+          <h3>Trusted security</h3>
+          <p>All your information and payment information is safe</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="fh5co-pricing" data-section="pricing">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 section-heading text-center">
+        <h2 class="single-animate animate-pricing-1">Pricing</h2>
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 subtext single-animate animate-pricing-2">
+            <h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-offset-3 col-md-3 col-sm-6">
+        <div class="price-box to-animate">
+          <h2 class="pricing-plan">Free</h2>
+          <div class="price"><sup class="currency">$</sup>0<small></small></div>
+          <p>The essentials of what you need to get started!</p>
+          <hr>
+          <ul class="pricing-info">
+            <li>Unlimited public Wikis</li>
+            <li>Invite Collaborators</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="price-box to-animate">
+          <h2 class="pricing-plan">Premium</h2>
+          <div class="price"><sup class="currency">$</sup>15<small>/once</small></div>
+          <p>Love what you can see but want more?</p>
+          <hr>
+          <ul class="pricing-info">
+            <li>Unlimited Public Wikis</li>
+            <li>Unlimited Private Wikis</li>
+            <li>Invite Collaborators</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div id="fh5co-our-services" data-section="pricing">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 section-heading text-center">
+        <h2 class="single-animate animate-pricing-1">Sign Up Now</h2>
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 subtext single-animate animate-pricing-2">
+            <h3>Insert Sign Up form here</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+<footer id="footer" role="contentinfo">
+  <div class="container">
+    <div class="row row-bottom-padded-sm">
+      <div class="col-md-12">
+        <p class="copyright text-center">&copy; 2015 by Drassiner. All Rights Reserved. </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <ul class="social social-circle">
+          <li><a href="#"><i class="icon-twitter"></i></a></li>
+          <li><a href="#"><i class="icon-facebook"></i></a></li>
+          <li><a href="#"><i class="icon-youtube"></i></a></li>
+          <li><a href="#"><i class="icon-linkedin"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<%#= javascript_include_tag "home_index/jquery.easing.1.3.js" %>
+<%= javascript_include_tag "home_index/jquery.waypoints.min.js" %>
+<%= javascript_include_tag "home_index/owl.carousel.min.js" %>
+<%= javascript_include_tag "home_index/main.js" %>
