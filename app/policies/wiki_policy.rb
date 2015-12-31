@@ -26,6 +26,10 @@ class WikiPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    user.admin? || user_match
+  end
+
   def edit?
     user.admin? || user_match
   end
@@ -38,8 +42,10 @@ class WikiPolicy < ApplicationPolicy
     user.admin? || user_match
   end
 
+private
+
   def user_match
-    @user.id == @wiki.user
+    user.id == wiki.user_id
   end
 
 

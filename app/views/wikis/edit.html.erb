@@ -1,3 +1,11 @@
 <h1>Edit Wiki</h1>
 
 <%= render partial: 'wikis/form', locals: {wiki: @wiki} %>
+
+<%= form_tag collaborators_path do %>
+  <%= hidden_field_tag :wiki_id, @wiki.id %>
+  <%= email_field_tag :email, nil, placeholder: 'email@example.com' %>
+  <%= submit_tag "Invite Friends", class: "btn btn-default" %>
+<% end %>
+
+<%# add collaborator view (like reddit) to show who are moderators of the wiki only owner can see, in order to delete %>

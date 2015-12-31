@@ -1,9 +1,12 @@
-<% if current_user.admin? || current_user.id == @wiki.user_id %>
-<div>
-  <%= link_to "Edit", edit_wiki_path(@wiki), class: "btn btn-default" %>
-</div>
+<% if policy(@wiki).show? %>
+  <div>
+    <%= link_to "Edit", edit_wiki_path(@wiki), class: "btn btn-default" %>
+  </div>
 <% end %>
+
 <h3 class="text-center"><%= @wiki.title %></h3>
 <div class="col-md-6 offset-col-md-3">
   <p class=""><%= markdown(@wiki.body) %></p>
 </div>
+
+<%# add collaborator view (like reddit) to show who are moderators of the wiki %>
