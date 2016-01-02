@@ -1,7 +1,7 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 
 //fonts
-
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,100,700);
 
 // bootstrap overwrite variables
 @import "bootstrap_override";
@@ -10,10 +10,140 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+
+@import "home";
+@import "devise_forms";
 @import "wikis";
 
+
+// Template Base
 
 body {
   margin-top: 70px;
   margin-bottom: 70px;
+
+  font-family: $font-primary;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.8;
+  color: lighten($brand-darker, 20%);
+  color: #7f7f7f;
+  //background: $brand-bg-color;
+  height: 100%;
+  position: relative;
+
+}
+a {
+  color: $brand-primary;
+  @include transition(.5s);
+  &:hover, &:active, &:focus {
+    color: $brand-primary;
+    outline: none;
+  }
+}
+p {
+  margin-bottom: 1.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $brand-black;
+  font-family: $font-primary;
+  font-weight: 400;
+}
+::-webkit-selection {
+  color: $brand-body-color;
+  background: $brand-selection-color;
+}
+
+::-moz-selection {
+  color: $brand-body-color;
+  background: $brand-selection-color;
+}
+
+::selection {
+  color: $brand-body-color;
+  background: $brand-selection-color;
+}
+
+.section-heading {
+  float: left;
+  width: 100%;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  clear: both;
+  h2 {
+    font-size: 50px;
+    font-weight: 300;
+    // letter-spacing: 2px;
+    color: #444;
+    text-transform: uppercase;
+    position: relative;
+    display: block;
+    padding-bottom: 20px;
+    line-height: 1.5;
+    &:after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 80px;
+      height: 2px;
+      background: $brand-primary;
+      left: 50%;
+      margin-left: -40px;
+      bottom: 0;
+    }
+    @media screen and (max-width: $screen-sm) {
+      font-size: 30px;
+    }
+  }
+  h3 {
+    font-weight: 300;
+    line-height: 1.5;
+    color: #929292;
+    @media screen and (max-width: $screen-sm) {
+      font-size: 24px!important;
+      line-height: 34px;
+    }
+  }
+}
+
+.btn {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  @include transition(.3s);
+  &.btn-primary {
+    background: $pastel-purple;
+    color: $brand-white;
+    border: none!important;
+    border: 2px solid transparent!important;
+    &:hover, &:active, &:focus {
+      box-shadow: none;
+      //background: $brand-primary;
+    }
+  }
+  &:hover, &:active, &:focus {
+    background: #393e46!important;
+    color: $brand-white;
+    outline: none!important;
+  }
+  &.btn-default {
+    &:hover, &:focus, &:active {
+      border-color: transparent;
+    }
+  }
+}
+
+.panel-body, .panel-footer {
+  border-radius: 4px;
+}
+
+.panel-footer {
+  margin-bottom: 20px;
+  border-top: 0;
+}
+
+.flash {
+  position: fixed;
+  width: inherit;
+  z-index: 9999;
 }

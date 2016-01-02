@@ -1,0 +1,64 @@
+#fh5co-pricing {
+  .price-box {
+      border: 2px solid #ECEEF0;
+      text-align: center;
+      padding: 30px;
+      @include border-radius(5px);
+      margin-bottom: 40px;
+      position: relative;
+      &.popular {
+        border: 2px solid $pastel-purple;
+        .popular-text {
+          top: 0;
+          left: 50%;
+          margin-left: -54px;
+          margin-top: -2em;
+        position: absolute;
+        padding: 4px 20px;
+        background: $pastel-purple;
+        color: $brand-white;
+        @include border-radius(4px);
+        &:after {
+           content: "";
+           position: absolute;
+           top: 100%;
+           left: 50%;
+           margin-left: -10px;
+           border-top: 10px solid black;
+           border-top-color: $brand-primary;
+           border-left: 10px solid transparent;
+           border-right: 10px solid transparent;
+        }
+        }
+      }
+  }
+  .pricing-plan {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .price {
+    font-size: 50px;
+    color: $brand-black;
+    .currency {
+      font-size: 20px;
+      top: -1.2em;
+    }
+    small {
+      font-size: 16px;
+    }
+  }
+  .pricing-info {
+    padding: 0;
+    margin: 0 0 30px 0;
+    li {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      text-align: center;
+    }
+  }
+}

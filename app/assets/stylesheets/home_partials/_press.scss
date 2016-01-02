@@ -1,0 +1,59 @@
+#fh5co-press {
+  .fh5co-press-item {
+    background: $brand-white;
+    float: left;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    @include flex;
+    @include border-radius(4px);
+    @media screen and (max-width: $screen-xs) {
+      display: block!important;
+    }
+    .fh5co-press-text,
+    .fh5co-press-img {
+      width: 50%;
+      @media screen and (max-width: $screen-xs) {
+        height: inherit;
+        float: none!important;
+        width: 100%;
+        display: block!important;
+      }
+    }
+    .fh5co-press-text {
+      float: left;
+      padding: 20px;
+      .fh5co-press-title {
+
+        margin: 0 0 20px 0;
+        padding: 0 0 10px 0;
+        font-weight: 400;
+        font-size: 20px;
+        color: $brand-darker;
+        position: relative;
+        .fh5co-border {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          height: 2px;
+          width: 30px;
+          background: $brand-primary;
+        }
+      }
+    }
+    .fh5co-press-img {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      background-size: cover;
+      @media screen and (max-width: $screen-xs) {
+        height: 200px;
+        left: 0;
+        top: 0;
+        position: relative;
+        width: 100%;
+      }
+    }
+  }
+}

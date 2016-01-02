@@ -1,3 +1,34 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "home_partials/*";
+
+#fh5co-our-services,
+#fh5co-about-us,
+#fh5co-features,
+#fh5co-pricing,
+#fh5co-press {
+  padding: 7em 0;
+  @media screen and (max-width: $screen-xs) {
+    padding: 5em 0;
+  }
+}
+
+
+#fh5co-our-services,
+#fh5co-press {
+  background: #f4f4f4;
+}
+
+#footer {
+  padding: 50px 0;
+  color: #7f7f7f;
+  // color: #d6d6d6;
+  .copyright {
+    margin-bottom: 0px;
+    padding-bottom: 0;
+  }
+}
+
+.js {
+  background:white;
+  margin-top:-70px;
+  margin-bottom: -70px;
+}

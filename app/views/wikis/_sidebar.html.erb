@@ -1,0 +1,26 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="text-center" style="background-color: #A39ED3;">
+        <%= header %>
+      </th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+      <% if names.is_a?(String) %>
+      <tr>
+        <th class="text-center"><%= names %></th>
+      </tr>
+      <% else %>
+        <% names.each do |name| %>
+        </tr>
+          <td class='text-center'><%= User.find(name.user_id).email %> <%= link_to '<i class="fa fa-times pull-right"></i>'.html_safe, collaborator_path(name.id), method: :delete %></td>
+        </tr>
+        <% end %>
+      <% end %>
+
+
+  </tbody>
+</table>

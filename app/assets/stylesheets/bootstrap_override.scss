@@ -1,3 +1,34 @@
+
+
+// Colors
+$seagull-blue: #89BDD3;
+$aqua-blue: #9AD3DE;
+$pastel-purple: #A39ED3;
+
+$success-green: #BFE28C;
+$error-red: #D47677;
+
+// Brand
+$brand-primary: $pastel-purple !default;
+$brand-white: #fff;
+$brand-black: #000;
+$brand-darker: #444;
+$brand-gray: #ccc;
+$brand-lighter: #e9e9e9;
+$brand-body-color: #818892;
+$brand-selection-color: #f9f6f0;
+$brand-overlay-color: #3b3d40;
+$brand-bg-color: $brand-white;
+
+// Globals
+$body-bg: $seagull-blue;
+$grid-gutter-width: 40px !default;
+$border-radius-base:  4px !default;
+$padding-base-vertical: 14px !default;
+$brand-primary: $pastel-purple !default;
+$input-border-focus:  $brand-primary !default;
+$form-group-margin-bottom:       30px !default;
+
 // Panels
 $panel-bg: #eee;
 $panel-footer-bg: #eee;
@@ -6,27 +37,51 @@ $panel-default-border: none;
 $panel-body-padding: 10px;
 $panel-footer-padding: 10px;
 
+// Tables
+$table-bg: #eee;
+$table-bg-accent: #fff;
+$table-border-color: $pastel-purple;
+$table-cell-padding: 8px;
 
-// Styles Override
+// Fonts
+$font-family-sans-serif: 'Roboto Slab', serif;
+$font-primary: 'Roboto Slab', serif;
 
-.btn {
-    border: 0 none;
-    font-weight: 300;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+$headings-font-weight: 300;
+
+// Forms
+$btn-primary-bg: $pastel-purple;
+$input-border: #fff;
+$input-border-focus: $pastel-purple;
+
+// Flash Messages
+$state-success-bg: $success-green;
+$state-danger-bg: $error-red;
+
+// Mixin
+@mixin transition($transition) {
+    -moz-transition:    $transition ease-in;
+    -o-transition:      $transition ease-in;
+    -webkit-transition: $transition ease-in;
+    -ms-transition:   $transition ease-in;
+    transition:         $transition ease-in;
 }
-
-.panel-body, .panel-footer {
-  border-radius: 4px;
+@mixin inline-block() {
+  display:-moz-inline-stack;
+  display:inline-block;
+  zoom:1;
+  *display:inline;
 }
-
-.panel-footer {
-  margin-bottom: 20px;
-  border-top: 0;
+@mixin flex() {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
-
-.flash {
-  position: fixed;
-  width: inherit;
-  z-index: 9999;
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
 }

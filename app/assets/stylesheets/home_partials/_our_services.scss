@@ -1,0 +1,73 @@
+#fh5co-our-services {
+
+  .box {
+    // min-height: 360px;
+    padding: 30px;
+    background: $brand-white;
+    text-align: center;
+    color: #7f7f7f;
+    margin-bottom: 70px;
+    position: relative;
+    @media screen and (max-width: $screen-md) {
+      min-height: inherit;
+      margin-bottom: 60px;
+    }
+    .icon {
+      width: 85px;
+      height: 85px;
+      margin: 0 auto;
+      // top: -70px;
+      top: 0;
+      margin-top: -70px;
+      margin-bottom: 30px;
+      position: relative;
+      @include border-radius(50%);
+      display: table;
+      text-align: center;
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+        i {
+          font-size: 40px;
+          color: $brand-white!important;
+          margin: 0;
+          padding: 0;
+        }
+      }
+      &.colored-1 {
+        background: #2aaf67;
+      }
+      &.colored-2 {
+        background: #00bff3;
+      }
+      &.colored-3 {
+        background: #f26522;
+      }
+      &.colored-4 {
+        background: #e52b50;
+      }
+      &.colored-5 {
+        background: #2fc5cc;
+      }
+      &.colored-6 {
+        background: #6173f4;
+      }
+    }
+    .step-number {
+      font-size: 16px;
+      display: block;
+      color: #d1d1d1;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    h3 {
+      margin: 0 0 20px 0;
+      padding: 0;
+      font-weight: 400;
+      font-size: 20px;
+      color: $brand-darker;
+    }
+  }
+}

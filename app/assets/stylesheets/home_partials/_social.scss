@@ -1,0 +1,56 @@
+// Social
+.social {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    a {
+      font-size: 16px;
+      display: table;
+      width: 40px;
+      height: 40px;
+      margin: 0 4px;
+
+      i {
+        display: table-cell;
+        vertical-align: middle;
+      }
+      &:hover, &:active, &:focus {
+        text-decoration: none;
+        border-bottom: none;
+      }
+      &.social-box {
+        background: $brand-primary;
+        color: $brand-white;
+      }
+      &.social-circle {
+        background: $brand-primary;
+        color: $brand-white;
+        @include border-radius(50%);
+      }
+      &:hover {
+        background: #393e46!important;
+      }
+
+    }
+  }
+  &.social-box {
+    a {
+      background: $brand-primary;
+      color: $brand-white;
+    }
+  }
+  &.social-circle {
+    a {
+      background: $brand-primary;
+      color: $brand-white;
+      @include border-radius(50%);
+    }
+  }
+}

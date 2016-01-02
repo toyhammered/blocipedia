@@ -1,0 +1,283 @@
+// Owl Carousel
+.owl-carousel {
+  .owl-controls .owl-nav {
+    opacity: 0;
+    @include transition(.5s);
+  }
+  &:focus, &:hover, &:active {
+    .owl-controls .owl-nav {
+      opacity: 1;
+    }
+  }
+  .btn-primary {
+    &:hover, &:focus, &:active {
+      background: transparent!important;
+      border: 2px solid $brand-white!important;
+    }
+  }
+}
+.owl-carousel .owl-controls,
+.owl-carousel-posts .owl-controls, {
+  margin-top: 0;
+}
+.owl-carousel .owl-controls .owl-nav {
+
+  @media screen and (max-width: $screen-sm) {
+    display: none;
+  }
+}
+.owl-carousel .owl-controls .owl-nav .owl-next,
+.owl-carousel .owl-controls .owl-nav .owl-prev {
+  top: 50%;
+  margin-top: -29px;
+  z-index: 9999;
+  position: absolute;
+  @include transition(.3s);
+  i:before {
+    color: rgba(255,255,255,.5);
+  }
+}
+.owl-carousel-posts .owl-controls .owl-nav .owl-next,
+.owl-carousel-posts .owl-controls .owl-nav .owl-prev {
+  top: 24%;
+}
+.owl-carousel .owl-controls .owl-nav .owl-next {
+  right: 0;
+  &:hover {
+    right: 10px;
+    i:before {
+      color: rgba(255,255,255,1);
+    }
+
+  }
+}
+.owl-carousel .owl-controls .owl-nav .owl-prev {
+  left: 0;
+  &:hover {
+    left: 10px;
+    i:before {
+      color: rgba(255,255,255,1);
+
+    }
+  }
+}
+.owl-carousel-posts .owl-controls .owl-nav .owl-next,
+.owl-carousel-posts .owl-controls .owl-nav .owl-prev {
+  i {
+    color: $brand-darker;
+  }
+  &:hover {
+    i {
+      color: $brand-black;
+    }
+  }
+}
+.owl-carousel-fullwidth.fh5co-light-arrow .owl-controls .owl-nav .owl-next,
+.owl-carousel-fullwidth.fh5co-light-arrow .owl-controls .owl-nav .owl-prev {
+  i {
+    color: $brand-white;
+  }
+  &:hover {
+    i {
+      color: $brand-white;
+    }
+  }
+}
+.owl-theme .owl-controls .owl-nav {
+  @media screen and (max-width: $screen-sm) {
+    display: none;
+  }
+}
+.owl-theme .owl-controls .owl-nav [class*="owl-"] {
+    background: none!important;
+  i {
+    font-size: 30px;
+    &:hover, &:focus {
+      background: none!important;
+    }
+  }
+  &:hover, &:focus {
+    background: none!important;
+  }
+}
+.owl-theme .owl-dots {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+.owl-carousel-fullwidth.owl-theme .owl-dots {
+  bottom: 0;
+  margin-bottom: 2.5em;
+}
+.owl-theme .owl-dots .owl-dot span {
+  width:10px;
+    height:10px;
+  background: rgba(255,255,255,.2);
+  @include transition(.2s);
+  border: 2px solid transparent;
+  &:hover {
+    background: none;
+    background: rgba(255,255,255,1);
+  }
+}
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+  // background: none;
+  background: rgba(255,255,255,1);
+  background: transparent;
+  border: 2px solid #fff;
+}
+.owl-carousel-fullwidth {
+
+
+  .item, .fh5co-owl-text-wrap {
+    height: 800px;
+    display: table;
+    width: 100%;
+    @media screen and (max-width: $screen-sm) {
+      height: inherit;
+      padding: 5em 0;
+    }
+  }
+  .fh5co-owl-text-wrap {
+    position: relative;
+    // bottom: -5em;
+  }
+  .item {
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top left;
+    position: relative;
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, .5);
+      z-index: 8;
+    }
+    img {
+      max-width: 100%;
+    }
+
+    .iphone-image {
+      position: relative;
+      z-index: 99;
+      .iphone {
+        float: right;
+        text-align: right;
+        position: relative;
+        bottom: -12em;
+        @media screen and (max-width: $screen-sm) {
+          bottom: 0em;
+          text-align: center;
+          float: none!important;
+          margin: 0 auto;
+          display: block;
+        }
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+
+
+
+    .fh5co-owl-text {
+      display: table-cell;
+      vertical-align: middle;
+      z-index: 10;
+      position: relative;
+      @media screen and (max-width: $screen-sm) {
+        // padding-top: 5em;
+      }
+      a {
+        color: rgba(255,255,255,1);
+        border-bottom: 1px solid rgba(255,255,255,.5);
+        &:hover {
+          text-decoration: none;
+          color: rgba(255,255,255,1);
+          border-bottom: 1px solid rgba(255,255,255,1);
+        }
+      }
+      .fh5co-lead, .fh5co-lead-2, .fh5co-sub-lead {
+        color: $brand-white;
+        margin: 0;
+        padding: 0;
+      }
+      .fh5co-lead {
+        font-weight: 700;
+        margin-bottom: 20px;
+        margin-top: 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #fff;
+        font-size: 50px;
+        line-height: 50px;
+        color: $brand-white;
+
+        @media screen and (max-width: $screen-sm) {
+          margin-bottom: 20px;
+          font-size: 30px;
+          line-height: 30px;
+        }
+      }
+
+      .fh5co-sub-lead {
+        font-size: 30px;
+        line-height: 30px;
+        line-height: 42px;
+        font-weight: 100;
+        margin-bottom: 30px;
+        color: rgba(255,255,255,1);
+        // font-family: $font-roboto;
+        @media screen and (max-width: $screen-sm) {
+          font-size: 24px;
+          line-height: 34px;
+        }
+      }
+    }
+  }
+}
+.js .to-animate,
+.js .to-animate-2,
+.js .single-animate {
+  opacity: 0;
+}
+
+
+// Helper Class
+.col-xxs-12 {
+  @media screen and (max-width: 480px) {
+    float: none;
+    width: 100%;
+  }
+}
+.row-bottom-padded-lg {
+  padding-bottom: 7em;
+  @media screen and (max-width: $screen-sm ) {
+    padding-bottom: 2em;
+  }
+}
+.row-bottom-padded-md {
+  padding-bottom: 4em;
+  @media screen and (max-width: $screen-sm ) {
+    padding-bottom: 2em;
+  }
+}
+.row-bottom-padded-sm {
+  padding-bottom: 2em;
+  @media screen and (max-width: $screen-sm ) {
+    padding-bottom: 2em;
+  }
+}
+
+// Menu Animate
+.fh5co-animated {
+  -webkit-animation-duration: .3s;
+  animation-duration: .3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}

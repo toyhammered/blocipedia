@@ -1,0 +1,28 @@
+#fh5co-features {
+  padding: 7em 0;
+  @media screen and (max-width: $screen-sm) {
+    padding: 4em 0;
+  }
+  .fh5co-service {
+    margin-bottom: 30px;
+    float: left;
+    .fh5co-icon {
+      float: left;
+      width: 20%;
+      // border: 1px solid red;
+      i {
+        font-size: 40px;
+        color: $brand-primary;
+      }
+    }
+    .fh5co-desc {
+      width: 80%;
+      // border: 1px solid red;
+      float:right;
+      h3 {
+        margin-top: 0;
+        font-size: 18px;
+      }
+    }
+  }
+}
