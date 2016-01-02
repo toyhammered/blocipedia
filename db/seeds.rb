@@ -42,7 +42,6 @@ wikis = Wiki.all
 
 
 
-
 puts "Seeding Finished."
 puts "#{User.count} users created."
 puts "#{Wiki.count} wikis created."

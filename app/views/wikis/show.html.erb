@@ -1,12 +1,40 @@
-<% if policy(@wiki).show? %>
-  <div>
-    <%= link_to "Edit", edit_wiki_path(@wiki), class: "btn btn-default" %>
-  </div>
-<% end %>
 
-<h3 class="text-center"><%= @wiki.title %></h3>
-<div class="col-md-6 offset-col-md-3">
-  <p class=""><%= markdown(@wiki.body) %></p>
+
+
+<div class="row">
+    <div class="panel panel-heading">
+      <h3 class="text-center">
+        <%= @wiki.title %>
+        <% if policy(@wiki).edit? %>
+          <div class="col-md-1">
+            <%= link_to "<i class='fa  fa-pencil'></i>".html_safe, edit_wiki_path(@wiki) %>
+          </div>
+        <% end %>
+
+        <% if policy(@wiki).destroy? %>
+          <div class="col-md-1 pull-right">
+            <%= link_to "<i class='fa  fa-trash'></i>".html_safe, wiki_path(@wiki), method: :delete, data: {confirm: "Are you sure?"} %>
+          </div>
+        <% end %>
+
+
+      </h3>
+    </div>
+</div>
+  <div class="row">
+
+  <div class="panel panel-body col-md-9">
+      <p class=""><%= markdown(@wiki.body) %></p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <%= render partial: 'sidebar', locals: {header: "Wiki Owner", names: @wiki.user.email} %>
+
+      <%= render partial: 'sidebar', locals: {header: "Editors", names: @wiki.collaborators} %>
+    </div>
+
+  </div>
 </div>
 
 <%# add collaborator view (like reddit) to show who are moderators of the wiki %>

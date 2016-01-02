@@ -1,3 +1,27 @@
+<% if current_page?(root_path) %>
+<header role="banner" id="fh5co-header">
+    <div class="container-fluid">
+      <!-- <div class="row"> -->
+        <nav class="navbar navbar-default">
+          <div class="navbar-header">
+            <!-- Mobile Toggle Menu Button -->
+        <a href="#" class="navbar-toggle collapsed js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i class="fa fa-bars"></i></a>
+              <%= link_to "Blocipedia", '/', class: 'navbar-brand' %>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="#" data-nav-section="home"><span>Home</span></a></li>
+              <li><a href="#" data-nav-section="about"><span>About</span></a></li>
+              <li><a href="#" data-nav-section="services"><span>Features</span></a></li>
+              <li><a href="#" data-nav-section="pricing"><span>Pricing</span></a></li>
+              <li><a href="#" data-nav-section="press"><span>Sign Up/In</span></a></li>
+            </ul>
+          </div>
+        </nav>
+      <!-- </div> -->
+    </div>
+</header>
+<% else %>
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -8,13 +32,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "Blocipedia", '/', class: 'navbar-brand' %>
+      <%= link_to "Blocipedia", '/', class: 'navbar-brand', style: "color: #A39ED3;"%>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
         <li><%= link_to "My Wikis", user_path(current_user), class: 'navbar-link' %></li>
@@ -35,3 +57,4 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<% end %>
