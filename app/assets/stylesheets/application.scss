@@ -49,6 +49,8 @@ h1, h2, h3, h4, h5, h6 {
   color: $brand-black;
   font-family: $font-primary;
   font-weight: 400;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 ::-webkit-selection {
   color: $brand-body-color;
@@ -110,6 +112,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn {
   text-transform: uppercase;
   letter-spacing: 2px;
+  padding: 8px 12px;
   @include transition(.3s);
   &.btn-primary {
     background: $pastel-purple;
@@ -122,7 +125,7 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
   &:hover, &:active, &:focus {
-    background: #393e46!important;
+    background: $aqua-blue !important;
     color: $brand-white;
     outline: none!important;
   }
@@ -133,8 +136,16 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.panel-heading {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 .panel-body, .panel-footer {
   border-radius: 4px;
+}
+
+.panel-body {
+  background-color: #fff;
 }
 
 .panel-footer {

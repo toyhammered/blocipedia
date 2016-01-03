@@ -16,7 +16,7 @@ $brand-darker: #444;
 $brand-gray: #ccc;
 $brand-lighter: #e9e9e9;
 $brand-body-color: #818892;
-$brand-selection-color: #f9f6f0;
+$brand-selection-color: $pastel-purple;
 $brand-overlay-color: #3b3d40;
 $brand-bg-color: $brand-white;
 
@@ -87,4 +87,16 @@ $state-danger-bg: $error-red;
      -moz-border-radius: $radius;
       -ms-border-radius: $radius;
           border-radius: $radius;
+}
+
+@mixin transform($transforms) {
+	   -moz-transform: $transforms;
+	     -o-transform: $transforms;
+	    -ms-transform: $transforms;
+	-webkit-transform: $transforms;
+          transform: $transforms;
+}
+
+@mixin scale($scale) {
+	 @include transform(scale($scale));
 }

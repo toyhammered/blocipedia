@@ -9,6 +9,28 @@
     right: 15px;
     text-align:center;
     padding-top:calc(50% - 50px);
-
     background-color: #eee;
+    border: 5px solid $pastel-purple;
+    @include transition(.3s);
+    &:hover, &:active, &:focus {
+        background: $pastel-purple !important;
+        color: $brand-white;
+        outline: none!important;
+        @include scale(1.1);
+
+        h3 {
+            color: white;
+            font-weight: 700;
+            @include scale(1.1);
+        }
+    }
+
+    h3 {
+        i {
+            @include scale(3);
+            color: $aqua-blue;
+        }
+
+    }
+
 }

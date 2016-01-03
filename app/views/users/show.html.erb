@@ -1,16 +1,23 @@
-<h2><%= @user.email %> Wikis || Role: <%= @user.role %></h2>
+<div class="row">
+  <% if current_user.admin? || current_user.id == @user.id %>
+  <div class="row">
 
-<% if current_user.admin? || current_user.id == @user.id %>
-<div class="row">
-  <h2>Private Wikis</h2>
-  <div class="col-md-12">
-    <%= render partial: 'wikis/wiki', collection: @private_wikis, as: :wiki %>
+    <div class="col-md-12">
+
+      <div class="panel panel-heading">
+        <h2 class="text-center">Private Wikis</h2>
+      </div>
+      <%= render partial: 'wikis/wiki', collection: @private_wikis, as: :wiki %>
+    </div>
   </div>
-</div>
-<% end %>
-<div class="row">
-  <h2>Public Wikis</h2>
-  <div class="col-md-12">
-    <%= render partial: 'wikis/wiki', collection: @public_wikis, as: :wiki %>
+  <% end %>
+  <div class="row">
+
+    <div class="col-md-12">
+      <div class="panel panel-heading">
+        <h2 class="text-center">Public Wikis</h2>
+      </div>
+      <%= render partial: 'wikis/wiki', collection: @public_wikis, as: :wiki %>
+    </div>
   </div>
 </div>
