@@ -195,3 +195,36 @@
     @include transition(.0s);
   }
 }
+
+
+#fh5co-header-other {
+  .navbar {
+    margin-bottom: 0;
+  }
+  .navbar-default {
+    border: none;
+  }
+  .navbar-brand {
+    float: left;
+    display: block;
+    font-size: 30px;
+    font-weight: 700;
+    padding-left: 0;
+
+
+  }
+  &.navbar-fixed-top {
+    position: fixed!important;
+    background: $brand-white;
+    -webkit-box-shadow: 0 0 9px 0 rgba(0,0,0,.1);
+    -moz-box-shadow: 0 0 9px 0 rgba(0,0,0,.1);
+    -ms-box-shadow: 0 0 9px 0 rgba(0,0,0,.1);
+    box-shadow: 0 0 9px 0 rgba(0,0,0,.1);
+    margin-top: 0px;
+    top: 0;
+    .navbar-brand {
+      color: $brand-primary;
+    }
+  }
+
+}

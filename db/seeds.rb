@@ -16,8 +16,9 @@ class CreateSeeds
 
       rescue ActiveRecord::RecordInvalid
         email = Faker::Internet.safe_email
-        new_user(@amount - 1, email, role)
+        new_user(@amount, email, role)
       end
+      @amount -= 1
     end
   end
 
@@ -30,6 +31,29 @@ class CreateSeeds
         body: Faker::Hipster.paragraph,
         private: user.standard? ? false : [true,false].sample
       )
+    end
+  end
+
+  def new_collaboration(amount, users, wikis)
+
+    @amount = amount
+
+    @amount.times do
+      return if @amount <= 0
+      user = users.sample
+      wiki = wikis.sample
+
+      ## some error here, adding duplicates when it shouldn't be
+      if user.id != wiki.user_id && wiki.collaborators.collect {|collaborator| collaborator.user_id}.exclude?(user.id)
+        Collaborator.create!(
+          user_id: user.id,
+          wiki_id: wiki.id
+        )
+      else
+        new_collaboration(@amount,users,wikis)
+      end
+
+      @amount -= 1
     end
   end
 
@@ -53,7 +77,13 @@ create.new_wiki(75, users)
 wikis = Wiki.all
 
 
+# Collaborations
+create.new_collaboration(500, users, wikis)
+
+
+
 # Seeding Completed
 puts "Seeding Finished."
 puts "#{User.count} users created."
 puts "#{Wiki.count} wikis created."
+puts "#{Collaborator.count} collaborations created."
