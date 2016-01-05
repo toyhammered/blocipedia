@@ -17,5 +17,16 @@ class CollaboratorsController < ApplicationController
   end
 
   def destroy
+    @collaborator = Collaborator.find(params[:id])
+    @user = User.find(@collaborator.user.id)
+    
+    authorize @collaborator
+
+    if @collaborator.destroy
+      flash[:notice] = "\"#{@user.email}\" was revoked access to edit this wiki"
+    else
+      flash[:error] = "Something went wrong. Please try again."
+    end
+    redirect_to :back
   end
 end
