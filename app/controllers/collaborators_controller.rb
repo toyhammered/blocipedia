@@ -5,7 +5,7 @@ class CollaboratorsController < ApplicationController
 
     @wiki = Wiki.find(params[:wiki_id])
     @collaborator = @user.collaborators.build(wiki: @wiki)
-    # add to protect against adding myself to own user, and check if not already a collaborator
+    
     authorize @collaborator
 
     if @collaborator.save
@@ -19,7 +19,7 @@ class CollaboratorsController < ApplicationController
   def destroy
     @collaborator = Collaborator.find(params[:id])
     @user = User.find(@collaborator.user.id)
-    
+
     authorize @collaborator
 
     if @collaborator.destroy

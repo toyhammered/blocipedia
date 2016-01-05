@@ -29,9 +29,9 @@
 
   <div class="row">
     <div class="col-md-3">
-      <%= render partial: 'sidebar', locals: {header: "Wiki Owner", names: @wiki.user.email} %>
+      <%= render partial: 'collaborator', locals: {header: "Wiki Owner", names: @wiki.user.email} %>
 
-      <%= render partial: 'sidebar', locals: {header: "Editors", names: @wiki.collaborators} %>
+      <%= render partial: 'collaborator', locals: {header: "Editors", names: @wiki.collaborators} %>
     </div>
 
   </div>

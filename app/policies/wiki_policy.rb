@@ -9,6 +9,10 @@ class WikiPolicy < ApplicationPolicy
     def my_public_wiki
       scope.where(user_id: @user.id, private: false)
     end
+
+    def my_editor_wiki
+      user.collaborators.where(user_id: @user.id).collect {|wiki| Wiki.find(wiki.wiki_id)}
+    end
   end
 
 

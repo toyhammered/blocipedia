@@ -1,0 +1,40 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="text-center" style="background-color: #A39ED3;">
+        <%= header %>
+      </th>
+
+    </tr>
+  </thead>
+  <tbody>
+      <% if names.is_a?(String) %>
+      <tr>
+        <th class="text-center"><%= link_to names, user_path(User.find_by(email: names).id) %></th>
+      </tr>
+      <% else %>
+        <% if policy(@wiki).create? %>
+          <tr>
+            <td class='text-center'>
+              Invite friend?
+            </td>
+          </tr>
+        <% end %>
+
+        <% names.each do |name| %>
+        </tr>
+          <td class='text-center'>
+            <%= link_to User.find(name.user_id).email, user_path(User.find(name.user_id)) %>
+            <% if policy(@wiki).destroy? %>
+              <%= link_to '<i class="fa fa-times"></i>'.html_safe, collaborator_path(name.id), class: "pull-right", method: :delete, data: {confirm: "Remove #{User.find(name.user_id).email} as an editor?"} %></td>
+            <% end %>
+        </tr>
+        <% end %>
+        <tr>
+
+        </tr>
+      <% end %>
+
+
+  </tbody>
+</table>

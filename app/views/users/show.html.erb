@@ -1,5 +1,5 @@
 <div class="row">
-  <% if current_user.admin? || current_user.id == @user.id %>
+  <% if policy(@user).show? %>
   <div class="row">
 
     <div class="col-md-12">
@@ -20,4 +20,15 @@
       <%= render partial: 'wikis/wiki', collection: @public_wikis, as: :wiki %>
     </div>
   </div>
+  <% if policy(@user).show? %>
+  <div class="row">
+
+    <div class="col-md-12">
+      <div class="panel panel-heading">
+        <h2 class="text-center">Editor for Wikis</h2>
+      </div>
+      <%= render partial: 'wikis/wiki', collection: @editor_wikis, as: :wiki %>
+    </div>
+  </div>
+  <% end %>
 </div>

@@ -86,7 +86,7 @@ RSpec.describe WikisController, type: :controller do
         it 'returns http redirect' do
           post :create, user_id: my_user.id, wiki: {title: Faker::Book.title, body: Faker::Hipster.paragraph, private: true}
           expect(response).to have_http_status(:redirect)
-          expect(flash[:error]).to match(/not authorized/)
+          expect(flash[:error]).to match(/do not have the authority/)
         end
 
       end # end of private wikis
@@ -176,7 +176,7 @@ RSpec.describe WikisController, type: :controller do
       it 'returns http error' do
         get :edit, {id: my_wiki.id}
         expect(response).to have_http_status(:redirect)
-        expect(flash[:error]).to match(/not authorized/)
+        expect(flash[:error]).to match(/do not have the authority/)
       end
     end
 
@@ -186,7 +186,7 @@ RSpec.describe WikisController, type: :controller do
         count = Wiki.where({id: my_wiki.id}).size
 
         expect(count).to eq 1
-        expect(flash[:error]).to match(/not authorized/)
+        expect(flash[:error]).to match(/do not have the authority/)
       end
     end
 
