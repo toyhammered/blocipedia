@@ -11,15 +11,9 @@ class WikiPolicy < ApplicationPolicy
     end
   end
 
-  attr_reader :user, :wiki
-
-  def initialize(user, wiki)
-    @user = user
-    @wiki = wiki
-  end
 
   def create?
-    if wiki.private?
+    if record.private?
       user.admin? || user.premium?
     else
       true
@@ -45,7 +39,7 @@ class WikiPolicy < ApplicationPolicy
 private
 
   def user_match
-    user.id == wiki.user_id
+    user.id == record.user_id
   end
 
 

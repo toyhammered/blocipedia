@@ -20,4 +20,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  pundit:
+    default: 'You do not have the authority to perform this action.'
+    wiki_policy:
+      create?: 'You do not have the authority to create a private wiki'
+      show?: 'You do not have the authority to see this wiki'
+      edit?: 'You do not have the authority to edit a wiki that is not your own'
+      update?: 'You do not have the authority to update a wiki that is not your own'
+      destroy?: 'You do not have the authority to delete a wiki that is not your own'
+    collaborator_policy:
+      create?: 'This user has already been added as an editor to your wiki'
+      destroy?: 'You do not have the authority to delete an editor from this wiki'
