@@ -8,7 +8,6 @@ gem 'rails', '4.2.4'
 group :production do
   gem 'pg'
   gem 'rails_12factor'
-  gem 'faker'
 end
 
 group :development do
@@ -27,8 +26,9 @@ group :development, :test do
   gem 'capybara'
   gem 'shoulda'
   gem 'factory_girl_rails', '~> 4.0'
-  gem 'faker'
+
 end
+gem 'faker'
 
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
