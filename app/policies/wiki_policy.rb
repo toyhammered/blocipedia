@@ -25,15 +25,15 @@ class WikiPolicy < ApplicationPolicy
   end
 
   def show?
-    user.admin? || user_match
+    user.admin? || user_match || user_collaborator
   end
 
   def edit?
-    user.admin? || user_match
+    user.admin? || user_match || user_collaborator
   end
 
   def update?
-    user.admin? || user_match
+    user.admin? || user_match || user_collaborator
   end
 
   def destroy?
@@ -44,6 +44,10 @@ private
 
   def user_match
     user.id == record.user_id
+  end
+
+  def user_collaborator
+    Collaborator.exists?(user_id: user.id, wiki_id: record.id)
   end
 
 
