@@ -13,10 +13,10 @@
         <th class="text-center"><%= link_to names, user_path(User.find_by(email: names).id) %></th>
       </tr>
       <% else %>
-        <% if policy(@wiki).create? %>
+        <% if policy(@wiki).destroy? %>
           <tr>
             <td class='text-center'>
-              Invite friend?
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Invite Friends!</button>
             </td>
           </tr>
         <% end %>
@@ -38,3 +38,28 @@
 
   </tbody>
 </table>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">Add Friends To Maintain This Wiki</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_tag collaborators_path, class: "form-group" do %>
+          <%= hidden_field_tag :wiki_id, @wiki.id %>
+          <%= email_field_tag :email, nil, placeholder: 'email@example.com', class: 'form-control' %>
+          <div style="padding:20px 0;">
+
+          <%= submit_tag "Add Friend", class: "btn btn-primary pull-right" %>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
