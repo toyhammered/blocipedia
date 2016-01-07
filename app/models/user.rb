@@ -15,4 +15,9 @@ class User < ActiveRecord::Base
     self.role ||= :standard
   end
 
+  def owns?(wiki)
+    self.wiki == wiki
+  end
+
+  
 end

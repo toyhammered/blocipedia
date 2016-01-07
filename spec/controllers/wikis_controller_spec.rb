@@ -22,7 +22,7 @@ RSpec.describe WikisController, type: :controller do
 
       it 'assigns Wiki.all to wikis' do
         get :index
-        expect(assigns(:wikis)).to eq (Wiki.all)
+        expect(assigns(:wikis)).to eq(Wiki.all)
       end
     end
 
@@ -191,8 +191,6 @@ RSpec.describe WikisController, type: :controller do
     end
 
   end # end of other user
-
-
 
 
 
