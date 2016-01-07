@@ -1,24 +1,16 @@
 class CreateSeeds
   def new_user(amount, email, role)
-    @amount = amount
-
-    @amount.times do
-      return if @amount <= 0
-
-      begin
-        User.create!(
-          email: email,
-          password: "fakefake",
-          password_confirmation: "fakefake",
-          confirmed_at: Time.now,
-          role: role
-        )
-
-      rescue ActiveRecord::RecordInvalid
-        email = Faker::Internet.safe_email
-        new_user(@amount, email, role)
+    amount.times do
+      u = User.new(
+        email: email,
+        password: "fakefake",
+        password_confirmation: "fakefake",
+        confirmed_at: Time.now,
+        role: role
+      )
+      unless u.save
+        u.update_attributes(email: Faker::Internet.safe_email)
       end
-      @amount -= 1
     end
   end
 
@@ -35,26 +27,26 @@ class CreateSeeds
   end
 
   def new_collaboration(amount, users, wikis)
-
-    @amount = amount
-
-    @amount.times do
-      return if @amount <= 0
+    i = 0
+    loop do
+      break if i > 1000
+      break if amount <= 0
       user = users.sample
       wiki = wikis.sample
 
-      ## some error here, adding duplicates when it shouldn't be
-      if user.id != wiki.user_id && wiki.collaborators.collect {|collaborator| collaborator.user_id}.exclude?(user.id)
-        Collaborator.create!(
+      unless user.id == wiki.user_id
+        c = Collaborator.new(
           user_id: user.id,
           wiki_id: wiki.id
         )
-      else
-        new_collaboration(@amount,users,wikis)
+        if c.save
+          amount -= 1
+        end
       end
 
-      @amount -= 1
+      i += 1
     end
+
   end
 
 end # end of CreateUser class
@@ -79,8 +71,6 @@ wikis = Wiki.all
 
 # Collaborations
 create.new_collaboration(500, users, wikis)
-
-
 
 # Seeding Completed
 puts "Seeding Finished."
