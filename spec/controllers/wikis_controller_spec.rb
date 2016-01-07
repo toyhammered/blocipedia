@@ -19,11 +19,6 @@ RSpec.describe WikisController, type: :controller do
         get :index
         expect(response).to have_http_status(:success)
       end
-
-      it 'assigns Wiki.all to wikis' do
-        get :index
-        expect(assigns(:wikis)).to eq(Wiki.all)
-      end
     end
 
       describe "GET show" do
