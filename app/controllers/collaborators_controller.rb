@@ -1,11 +1,15 @@
 class CollaboratorsController < ApplicationController
   def create
     @user = User.find_by(email: params[:email])
-    # catch an error if @user = nil
+    if @user.nil?
+      flash[:error] = "#{params[:email]} does not exist"
+      redirect_to :back
+      return
+    end
 
     @wiki = Wiki.find(params[:wiki_id])
     @collaborator = @user.collaborators.build(wiki: @wiki)
-    
+
     authorize @collaborator
 
     if @collaborator.save
