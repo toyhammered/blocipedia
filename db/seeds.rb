@@ -70,7 +70,7 @@ wikis = Wiki.all
 
 
 # Collaborations
-create.new_collaboration(500, users, wikis)
+create.new_collaboration(50, users, wikis)
 
 # Seeding Completed
 puts "Seeding Finished."

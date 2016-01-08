@@ -8,6 +8,7 @@
         <h2 class="text-center">Private Wikis</h2>
       </div>
       <%= render partial: 'wikis/wiki', collection: @private_wikis, as: :wiki %>
+      <%= will_paginate @private_wikis %>
     </div>
   </div>
   <% end %>
@@ -18,6 +19,7 @@
         <h2 class="text-center">Public Wikis</h2>
       </div>
       <%= render partial: 'wikis/wiki', collection: @public_wikis, as: :wiki %>
+      <%= will_paginate @public_wikis %>
     </div>
   </div>
   <% if policy(@user).show? %>
@@ -28,6 +30,7 @@
         <h2 class="text-center">Editor for Wikis</h2>
       </div>
       <%= render partial: 'wikis/wiki', collection: @editor_wikis, as: :wiki %>
+      <%= will_paginate @editor_wikis %>
     </div>
   </div>
   <% end %>

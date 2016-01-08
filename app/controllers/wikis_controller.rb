@@ -3,7 +3,7 @@ class WikisController < ApplicationController
   after_action :verify_authorized, except: [:index, :show, :new]
 
   def index
-    @wikis = Wiki.where(private: false)
+    @wikis = (Wiki.where(private: false)).paginate(page: params[:page], per_page: 11).order('updated_at DESC')
   end
 
   def show

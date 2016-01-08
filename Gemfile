@@ -32,6 +32,7 @@ gem 'faker'
 
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
+gem 'will_paginate', '~> 3.0.6'
 
 gem 'devise'
 gem 'figaro'

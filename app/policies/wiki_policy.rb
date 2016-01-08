@@ -11,7 +11,7 @@ class WikiPolicy < ApplicationPolicy
     end
 
     def my_editor_wiki
-      user.collaborators.where(user_id: @user.id).collect {|wiki| Wiki.find(wiki.wiki_id)}
+      scope.joins(:collaborators).where("collaborators.user_id = ?", user.id)
     end
   end
 
