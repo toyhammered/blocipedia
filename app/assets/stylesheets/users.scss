@@ -1,3 +1,49 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.digg-pagination {
+  //background: white;
+  cursor: default;
+  a, span, em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px;
+  }
+  .current {
+    font-style: normal;
+    font-weight: bold;
+    background: $pastel-purple;
+    color: white;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+    &:hover, &:focus {
+      color: $pastel-purple;
+    }
+  }
+  .page-info {
+    color: white;
+    //background: white;
+    margin-bottom: 0.3em;
+    clear: both;
+    b {
+      color: black;
+      font-weight:700;
+
+      padding: 0.1em 0.25em;
+    }
+  }
+  .pagination {
+    .previous_page {
+      color: $pastel-purple;
+      float:left;
+      width: 40px;
+    }
+    .next_page {
+      color: $pastel-purple;
+      float:right
+    }
+    .disabled {
+      color: #999;
+    }
+  }
+}

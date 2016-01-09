@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
     @public_wikis = (WikiPolicy::Scope.new(@user, Wiki).my_public_wiki).paginate(page: params[:public_page]).order('updated_at DESC')
 
-    @editor_wikis = (WikiPolicy::Scope.new(@user, Wiki).my_editor_wiki).paginate(page: params[:editor_page]).order('updated_at DESC')
+    @editor_wikis = (WikiPolicy::Scope.new(@user, Wiki).my_editor_wiki).paginate(page: params[:editor_page]).order('private DESC, updated_at DESC')
 
   end
 end

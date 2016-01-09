@@ -8,7 +8,14 @@
         <h2 class="text-center">Private Wikis</h2>
       </div>
       <%= render partial: 'wikis/wiki', collection: @private_wikis, as: :wiki %>
-      <%= will_paginate @private_wikis, param_name: "private_page" %>
+      <div class="digg-pagination">
+        <div class="page-info text-center">
+          <%= page_entries_info @private_wikis %>
+        </div>
+        <div class="text-center">
+          <%= will_paginate @private_wikis, param_name: "private_page", previous_label: previous_page, next_label: next_page %>
+        </div>
+      </div>
     </div>
   </div>
   <% end %>
