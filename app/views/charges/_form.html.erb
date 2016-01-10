@@ -1,6 +1,5 @@
-<%= form_tag charges_path, id: 'chargeForm' do %>
 
-  <script src="https://checkout.stripe.com/checkout.js"></script>
+<%= form_tag charges_path, id: 'chargeForm' do %>
 
   <%= hidden_field_tag 'stripeToken' %>
   <%= hidden_field_tag 'stripeEmail' %>

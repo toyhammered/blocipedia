@@ -10,3 +10,4 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += ['home_index/*.css', 'home_index/*.js', 'home_index/*.scss']
+Rails.application.config.assets.precompile += %w( stripe/checkout.js )
