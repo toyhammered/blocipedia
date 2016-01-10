@@ -16,8 +16,8 @@ class User < ActiveRecord::Base
   end
 
   def owns?(wiki)
-    self.wiki == wiki
+    self.id == wiki.user_id
   end
 
-  
+
 end

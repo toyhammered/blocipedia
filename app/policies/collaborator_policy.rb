@@ -1,7 +1,7 @@
 class CollaboratorPolicy < ApplicationPolicy
 
   def create?
-    user.owns?(record.wiki)
+    user.admin? || user.owns?(record.wiki)
   end
 
   def destroy?

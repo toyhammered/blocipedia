@@ -13,9 +13,9 @@ class CollaboratorsController < ApplicationController
     authorize @collaborator
 
     if @collaborator.save
-      flash[:notice] = "Invited #{@user.email} to edit wiki"
+      flash[:notice] = "Added #{@user.email} to edit wiki"
     else
-      flash[:error] = "Invite to #{@user.email} failed"
+      flash[:error] = "#{@user.email} is already an editor"
     end
     redirect_to :back
   end

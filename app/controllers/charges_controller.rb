@@ -1,16 +1,5 @@
 class ChargesController < ApplicationController
   def new
-    unless current_user.premium? || current_user.admin?
-      @stripe_btn_data = {
-       key: "#{ Rails.configuration.stripe[:publishable_key] }",
-       description: "Blocipedia Premium Membership - #{current_user.email}",
-       amount: 1500
-      }
-     else
-       flash[:error] = "It seems like you are already a premium member or admin."
-       redirect_to user_path(current_user)
-     end
-
   end
 
   def create
@@ -40,7 +29,7 @@ class ChargesController < ApplicationController
     # This `rescue block` catches and displays those errors.
     rescue Stripe::CardError => e
      flash[:error] = e.message
-     redirect_to new_charge_path
+     redirect_to user_path(current_user)
   end
 
 end

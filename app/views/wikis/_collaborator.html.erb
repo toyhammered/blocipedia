@@ -13,7 +13,7 @@
         <th class="text-center"><%= link_to names, user_path(User.find_by(email: names).id) %></th>
       </tr>
       <% else %>
-        <% if policy(@wiki).destroy? %>
+        <% if policy(@wiki).create? %>
           <tr>
             <td class='text-center'>
               <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">Invite Friends!</button>

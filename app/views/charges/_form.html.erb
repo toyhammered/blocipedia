@@ -1,0 +1,37 @@
+<%= form_tag charges_path, id: 'chargeForm' do %>
+
+  <script src="https://checkout.stripe.com/checkout.js"></script>
+
+  <%= hidden_field_tag 'stripeToken' %>
+  <%= hidden_field_tag 'stripeEmail' %>
+
+  <button id="customButton" class="btn btn-success">Upgrade Account</button>
+
+  <script>
+    var handler = StripeCheckout.configure({
+      key: '<%= ENV["STRIPE_PUBLISHABLE_KEY"] %>',
+      image: '/img/documentation/checkout/marketplace.png',
+      locale: 'auto',
+      token: function (token, args) {
+        $("#stripeToken").val(token.id);
+        $("#stripeEmail").val(token.email);
+        $("#chargeForm").submit();
+      }
+    });
+
+    $('#customButton').on('click', function (e) {
+      // Open Checkout with further options
+      handler.open({
+        name: 'Blocipedia',
+        description: 'Premium Membership',
+        amount: 1500
+      });
+      e.preventDefault();
+    });
+
+    // Close Checkout on page navigation
+    $(window).on('popstate', function () {
+      handler.close();
+    });
+  </script>
+<% end %>
