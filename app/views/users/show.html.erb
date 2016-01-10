@@ -26,7 +26,14 @@
         <h2 class="text-center">Public Wikis</h2>
       </div>
       <%= render partial: 'wikis/wiki', collection: @public_wikis, as: :wiki %>
-      <%= will_paginate @public_wikis, param_name: "public_page" %>
+      <div class="digg-pagination">
+        <div class="page-info text-center">
+          <%= page_entries_info @public_wikis %>
+        </div>
+        <div class="text-center">
+          <%= will_paginate @public_wikis, param_name: "public_page", previous_label: previous_page, next_label: next_page %>
+        </div>
+      </div>
     </div>
   </div>
   <% if policy(@user).show? %>
@@ -37,7 +44,14 @@
         <h2 class="text-center">Editor for Wikis</h2>
       </div>
       <%= render partial: 'wikis/wiki', collection: @editor_wikis, as: :wiki %>
-      <%= will_paginate @editor_wikis, param_name: "editor_page" %>
+      <div class="digg-pagination">
+        <div class="page-info text-center">
+          <%= page_entries_info @editor_wikis %>
+        </div>
+        <div class="text-center">
+          <%= will_paginate @editor_wikis, param_name: "editor_page", previous_label: previous_page, next_label: next_page %>
+        </div>
+      </div>
     </div>
   </div>
   <% end %>

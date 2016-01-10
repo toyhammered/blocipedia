@@ -16,5 +16,12 @@
 
     <!-- database wikis -->
     <%= render partial: 'wikis/wiki', collection: @wikis %>
-    <%= will_paginate @wikis %>
+    <div class="digg-pagination">
+        <div class="page-info text-center">
+          <%= page_entries_info @wikis %>
+        </div>
+        <div class="text-center">
+          <%= will_paginate @wikis, param_name: "page", previous_label: previous_page, next_label: next_page %>
+        </div>
+    </div>
 </div>
