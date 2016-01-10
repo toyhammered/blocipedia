@@ -4,4 +4,6 @@ $(document).on('page:change', function() {
       $('.alert').fadeOut(300);
     }, 2500);
   });
+
+  
 });

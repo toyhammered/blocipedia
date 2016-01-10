@@ -3,6 +3,11 @@
 <%= stylesheet_link_tag "home_index/owl.theme.default.min.css" %>
 <%= stylesheet_link_tag "home_index/magnific-popup.css" %>
 
+<script>
+$(window).on('unload', function() {
+  $(window).scrollTop(0);
+});
+</script>
 
 
 <div class="js">
