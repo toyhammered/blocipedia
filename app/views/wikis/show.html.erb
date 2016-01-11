@@ -4,12 +4,14 @@
 <div class="row">
     <div class="panel panel-heading">
       <h3 class="text-center">
-        <%= @wiki.title %>
+
         <% if policy(@wiki).edit? %>
-          <div class="col-md-1">
+          <div class="col-md-1 pull-left">
             <%= link_to "<i class='fa  fa-pencil'></i>".html_safe, edit_wiki_path(@wiki) %>
           </div>
         <% end %>
+
+        <%= @wiki.title %>
 
         <% if policy(@wiki).destroy? %>
           <div class="col-md-1 pull-right">

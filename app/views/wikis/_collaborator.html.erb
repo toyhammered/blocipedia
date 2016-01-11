@@ -22,17 +22,15 @@
         <% end %>
 
         <% names.each do |name| %>
-        </tr>
+        <tr>
           <td class='text-center'>
             <%= link_to User.find(name.user_id).email, user_path(User.find(name.user_id)) %>
             <% if policy(@wiki).destroy? %>
-              <%= link_to '<i class="fa fa-times"></i>'.html_safe, collaborator_path(name.id), class: "pull-right", method: :delete, data: {confirm: "Remove #{User.find(name.user_id).email} as an editor?"} %></td>
+              <%= link_to '<i class="fa fa-times"></i>'.html_safe, collaborator_path(name.id), class: "pull-right", method: :delete, data: {confirm: "Remove #{User.find(name.user_id).email} as an editor?"} %>
             <% end %>
+          </td>
         </tr>
         <% end %>
-        <tr>
-
-        </tr>
       <% end %>
 
 

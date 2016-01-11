@@ -17,12 +17,13 @@ class CollaboratorsController < ApplicationController
     else
       flash[:error] = "#{@user.email} is already an editor"
     end
-    redirect_to :back
+    redirect_to @wiki
   end
 
   def destroy
     @collaborator = Collaborator.find(params[:id])
-    @user = User.find(@collaborator.user.id)
+    @user = User.find(@collaborator.user_id)
+    @wiki = Wiki.find(@collaborator.wiki_id)
 
     authorize @collaborator
 
@@ -31,6 +32,6 @@ class CollaboratorsController < ApplicationController
     else
       flash[:error] = "Something went wrong. Please try again."
     end
-    redirect_to :back
+    redirect_to @wiki
   end
 end
