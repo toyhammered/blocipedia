@@ -26,7 +26,9 @@
   <div class="row">
 
   <div class="panel panel-body col-md-9">
-      <p class=""><%= markdown(@wiki.body) %></p>
+    <div class="markdown-area">
+      <%= @wiki.body %>
+    </div>
   </div>
 
   <div class="row">

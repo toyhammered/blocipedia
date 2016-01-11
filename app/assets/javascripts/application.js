@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require stripe/checkout
+//= require markdown
 //= require_tree .

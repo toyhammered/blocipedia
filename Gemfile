@@ -39,8 +39,8 @@ gem 'pundit'
 
 gem 'stripe'
 gem 'stripe-ruby-mock', '~> 2.2.1', :require => 'stripe_mock'
-gem 'redcarpet'
 
+gem 'markdownjs-rails'
 
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
