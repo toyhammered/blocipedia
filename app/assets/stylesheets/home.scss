@@ -17,12 +17,17 @@
   background: #f4f4f4;
 }
 
+
+.push {
+  padding-top: 150px;
+}
 #footer {
-  padding: 50px 0;
+
   color: #7f7f7f;
-  // color: #d6d6d6;
+  background: white;
   .copyright {
     margin-bottom: 0px;
+    margin-top:5px;
     padding-bottom: 0;
   }
 }
