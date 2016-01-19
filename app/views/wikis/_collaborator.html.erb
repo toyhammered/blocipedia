@@ -49,6 +49,7 @@
       </div>
       <div class="modal-body">
         <%= form_tag collaborators_path, class: "form-group" do %>
+          <%#= hidden_field_tag "collaborator[wiki_id]", @wiki.id %>
           <%= hidden_field_tag :wiki_id, @wiki.id %>
           <%= email_field_tag :email, nil, placeholder: 'email@example.com', class: 'form-control' %>
           <div style="padding:20px 0;">

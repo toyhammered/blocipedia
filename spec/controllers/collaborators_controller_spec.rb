@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe CollaboratorsController, type: :controller do
 
   let(:my_user) { create(:user) }
+
+  # will delete once I start writing more tests
   let(:other_user) { create(:user) }
   let(:my_premium_user) { create(:user, role: :premium) }
   let(:other_premium_user) { create(:user, role: :premium) }
@@ -14,13 +16,20 @@ RSpec.describe CollaboratorsController, type: :controller do
   context 'my user adding or deleting collaborator to public wiki they own' do
     before(:each) do
       sign_in my_user
-
     end
 
     describe "POST create" do
+
       it 'increases the number of Collaborators by 1' do
         my_public_wiki = create(:wiki, user: my_user)
-        expect { post :create, wiki_id: my_public_wiki.id, user_id: my_user.id, collaborator: {user_id: other_user.id, wiki_id: my_public_wiki.id } }.to change(Collaborator, :count).by(1)
+
+        expect { post :create, email: other_user.email, wiki_id: my_public_wiki.id  }.to change(Collaborator, :count).by(1)
+      end
+
+      it 'does not create Collaboration for the owner of wiki' do
+        my_public_wiki = create(:wiki, user: my_user)
+
+        expect { post :create, email: other_user.email, wiki_id: my_public_wiki.id  }.to change(Collaborator, :count).by(0)
       end
     end
 

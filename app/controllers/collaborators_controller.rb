@@ -1,5 +1,6 @@
 class CollaboratorsController < ApplicationController
   def create
+    
     @user = User.find_by(email: params[:email])
     @wiki = Wiki.find(params[:wiki_id])
     if @user.nil?
